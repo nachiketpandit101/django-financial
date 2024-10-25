@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Backtesting App</title>
+    <!-- Add some basic styling -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Stock Backtesting App</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'backtest' %}">Run Backtest</a></li>
+        <li><a href="{% url 'stock_data' %}">View Stock Data</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

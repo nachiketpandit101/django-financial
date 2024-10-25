@@ -1,0 +1,37 @@
+<!-- templates/stocks/backtest.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backtesting</title>
+  </head>
+  <body>
+    <h1>Backtesting</h1>
+
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Run Backtest</button>
+    </form>
+
+    {% if result %}
+    <h2>Backtest Results</h2>
+    <p><strong>Initial Investment:</strong> {{ result.initial_investment }}</p>
+    <p>
+      <strong>Final Portfolio Value:</strong> {{ result.final_portfolio_value }}
+    </p>
+    <p><strong>Total Return:</strong> {{ result.total_return }}%</p>
+    <p><strong>Max Drawdown:</strong> {{ result.max_drawdown }}%</p>
+    <p><strong>Number of Trades:</strong> {{ result.trade_count }}</p>
+    <h3>Trades Executed:</h3>
+    <ul>
+      {% for trade in result.trades %}
+      <li>
+        {{ trade.date }}: {{ trade.type }} at {{ trade.price }} (Amount: {{
+        trade.amount }})
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>

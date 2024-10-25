@@ -17,3 +17,14 @@ class StockData(models.Model):
 
     def __str__(self):
         return f"{self.symbol} - {self.timestamp}"
+
+class BacktestResult(models.Model):
+    initial_investment = models.DecimalField(max_digits=15, decimal_places=2)
+    final_portfolio_value = models.DecimalField(max_digits=15, decimal_places=2)
+    total_return = models.DecimalField(max_digits=15, decimal_places=2)
+    max_drawdown = models.DecimalField(max_digits=15, decimal_places=2)
+    trade_count = models.IntegerField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"BacktestResult {self.id} - {self.timestamp}"
