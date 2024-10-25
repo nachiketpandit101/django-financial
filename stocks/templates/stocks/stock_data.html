@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Data</title>
+  </head>
+  <body>
+    <h1>Stock Data for AAPL</h1>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Open Price</th>
+        <th>Close Price</th>
+        <th>High Price</th>
+        <th>Low Price</th>
+        <th>Volume</th>
+      </tr>
+      {% for entry in stock_data %}
+      <tr>
+        <td>{{ entry.timestamp }}</td>
+        <td>{{ entry.open_price }}</td>
+        <td>{{ entry.close_price }}</td>
+        <td>{{ entry.high_price }}</td>
+        <td>{{ entry.low_price }}</td>
+        <td>{{ entry.volume }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
