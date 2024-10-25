@@ -4,8 +4,9 @@ from stocks.models import StockData
 from datetime import datetime
 from django.db.utils import IntegrityError
 import time
+from django.conf import settings
 
-API_KEY = 'YD94ZVG7UAB1JMNO'  
+API_KEY = settings.API_KEY
 BASE_URL = 'https://www.alphavantage.co/query'
 
 class Command(BaseCommand):
